@@ -72,8 +72,6 @@
 
     .intro-bee {
       width: 180px;
-      mix-blend-mode: screen;
-      filter: drop-shadow(0 0 30px rgba(245,166,35,0.6)) drop-shadow(0 0 60px rgba(0,229,255,0.3));
       animation: beeReveal 0.7s cubic-bezier(.34,1.56,.64,1) 1.8s both, beeFloat 2.5s ease-in-out 2.5s infinite;
     }
     @keyframes beeReveal {
@@ -220,7 +218,6 @@
     /* THE BEE */
     .hero-bee {
       width: clamp(200px, 26vw, 320px);
-      filter: drop-shadow(0 0 35px rgba(245,166,35,0.5)) drop-shadow(0 0 70px rgba(0,229,255,0.2));
       animation: heroFloat 4s ease-in-out infinite;
       position: relative; z-index: 1;
       margin: 6px 0 16px;
@@ -341,6 +338,22 @@
     .ig-caption {
       padding: 10px 12px;
       font-size: 0.72rem; color: #777; line-height: 1.5;
+    }
+
+    /* ─── REAL VIDEO PLAYER ─── */
+    .reel-player {
+      width: 100%; max-width: 220px;
+      aspect-ratio: 9/16;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+      background: #000;
+    }
+    .reel-player video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--amber), #d4880e);
@@ -645,24 +658,20 @@
         </div>
       </div>
 
-      <!-- RIGHT: Instagram Video Card -->
+      <!-- RIGHT: Real Video Player -->
       <div class="ig-wrap">
         <div class="ig-label">▶ The Viral Video</div>
-        <a class="ig-card" href="https://www.instagram.com/reels/DBrE6zEvP-6/" target="_blank" rel="noopener">
-          <div class="ig-thumb">
-            <img src="bee-cutout.png" alt="Watch the reel" class="ig-thumb-bee"/>
-            <div class="ig-play-btn">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="#000"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-            <div class="ig-overlay">
-              <span class="ig-logo">📱 Instagram Reel</span>
-              <span class="ig-cta-text">Tap to watch</span>
-            </div>
-          </div>
-          <div class="ig-caption">
-            🐝 "The bee flies anyway" — watch the video that started it all
-          </div>
-        </a>
+        <div class="reel-player">
+          <video
+            src="reel.mp4"
+            playsinline
+            loop
+            muted
+            autoplay
+            controls
+            preload="auto"
+          ></video>
+        </div>
       </div>
 
     </div><!-- end .hero-3col -->
